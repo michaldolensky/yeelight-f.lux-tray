@@ -31,8 +31,8 @@ const stderrFilterPatterns = [
 ];
 
 /**
- * 
- * @param {{name: string; configFile: string; writeBundle: import('rollup').OutputPlugin['writeBundle'] }} param0 
+ *
+ * @param {{name: string; configFile: string; writeBundle: import('rollup').OutputPlugin['writeBundle'] }} param0
  * @returns {import('rollup').RollupWatcher}
  */
 const getWatcher = ({name, configFile, writeBundle}) => {
