@@ -1,8 +1,10 @@
-import {app, Tray} from 'electron';
+import {app, nativeImage, Tray} from 'electron';
 import {contextMenu} from '/@/contextMenu';
 import {Discover, Yeelight} from 'yeelight-awesome';
 import {logger} from '/@/Logger';
-import {getMenuIcon} from '/@/utils/getIcons';
+
+import appIcon from '../assets/icons/icon.png';
+
 
 const isSingleInstance = app.requestSingleInstanceLock();
 
@@ -33,7 +35,7 @@ discover
 
 let tray: Tray | null = null;
 const initTray = async () => {
-  tray = new Tray(getMenuIcon('icon.png'));
+  tray = new Tray(nativeImage.createFromDataURL(appIcon));
   tray.setContextMenu(contextMenu);
 };
 

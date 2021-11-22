@@ -1,12 +1,19 @@
-import {app, Menu} from 'electron';
+import {app, Menu, nativeImage} from 'electron';
 import {CtScene} from 'yeelight-awesome';
 import {yeelightArray} from '/@/index';
-import {getMenuIcon} from '/@/utils/getIcons';
+
+import toggleIcon from '../assets/icons/IEC5010_On_Off_Symbol.png';
+import turnOffIcon from '../assets/icons/IEC5009_Standby_Symbol.png';
+import moonIcon from '../assets/icons/moon.png';
+import sunriseIcon from '../assets/icons/sunrise_1f305.png';
+
+const iconSize = 48;
+
 
 export const contextMenu = Menu.buildFromTemplate([
   {
     label: 'Toggle',
-    icon: getMenuIcon('IEC5010_On_Off_Symbol.png'),
+    icon: nativeImage.createFromDataURL(toggleIcon).resize({height: iconSize}),
     click: async () => {
       try {
         for (const yeelight of yeelightArray) {
@@ -21,7 +28,7 @@ export const contextMenu = Menu.buildFromTemplate([
   },
   {
     label: 'Day',
-    icon: getMenuIcon('sunrise_1f305.ico'),
+    icon: nativeImage.createFromDataURL(sunriseIcon).resize({height: iconSize}),
     click: async () => {
       try {
         for (const yeelight of yeelightArray) {
@@ -37,7 +44,7 @@ export const contextMenu = Menu.buildFromTemplate([
   },
   {
     label: 'Night',
-    icon: getMenuIcon('moon.ico'),
+    icon: nativeImage.createFromDataURL(moonIcon).resize({height: iconSize}),
     click: async () => {
       try {
         for (const yeelight of yeelightArray) {
@@ -53,7 +60,7 @@ export const contextMenu = Menu.buildFromTemplate([
   },
   {
     label: 'Exit',
-    icon: getMenuIcon('IEC5009_Standby_Symbol.png'),
+    icon: nativeImage.createFromDataURL(turnOffIcon).resize({height: iconSize}),
     click: () => {
       app.quit();
     },
