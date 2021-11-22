@@ -1,4 +1,5 @@
-import {app} from 'electron';
+import {app, nativeImage, Tray} from 'electron';
+import {contextMenu} from '/@/contextMenu';
 
 const isSingleInstance = app.requestSingleInstanceLock();
 
@@ -9,6 +10,12 @@ if (!isSingleInstance) {
 
 app.disableHardwareAcceleration();
 
+let tray: Tray | null = null;
+const initTray = async () => {
+  tray = new Tray(nativeImage.createFromPath('./resources/icons/icon.png'));
+  tray.setContextMenu(contextMenu);
+};
+
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
@@ -16,7 +23,8 @@ app.on('window-all-closed', () => {
 });
 
 app.whenReady()
-  .catch((e) => console.error('Failed create window:', e));
+  .then(initTray)
+  .catch((e) => console.error('Failed create tray:', e));
 
 // Auto-updates
 if (import.meta.env.PROD) {
