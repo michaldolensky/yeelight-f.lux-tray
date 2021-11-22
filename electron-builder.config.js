@@ -17,13 +17,13 @@ const config = {
     // 'packages/**/dist/**',
     'packages/main/dist/**',
   ],
-  extraResources:[
-    {
-      'from': 'assets/icons/',
-      'to': 'icons/',
-      'filter': ['*.*', '!*.svg'],
-    },
-  ],
+  // extraResources:[
+  //   {
+  //     'from': 'assets/icons/',
+  //     'to': 'icons/',
+  //     'filter': ['*.*', '!*.svg'],
+  //   },
+  // ],
   extraMetadata: {
     version: process.env.VITE_APP_VERSION,
   },
