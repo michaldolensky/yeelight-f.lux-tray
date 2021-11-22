@@ -15,6 +15,13 @@ const config = {
   files: [
     'packages/**/dist/**',
   ],
+  extraResources:[
+    {
+      'from': 'assets/icons/',
+      'to': 'icons/',
+      'filter': ['*.*', '!*.svg'],
+    },
+  ],
   extraMetadata: {
     version: process.env.VITE_APP_VERSION,
   },
