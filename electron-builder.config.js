@@ -8,6 +8,7 @@ if (process.env.VITE_APP_VERSION === undefined) {
  * @see https://www.electron.build/configuration/configuration
  */
 const config = {
+  'productName': 'Yeelight f.lux tray',
   directories: {
     output: 'dist',
     buildResources: 'buildResources',
