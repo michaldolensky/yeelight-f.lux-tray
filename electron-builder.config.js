@@ -13,7 +13,8 @@ const config = {
     buildResources: 'buildResources',
   },
   files: [
-    'packages/**/dist/**',
+    // 'packages/**/dist/**',
+    'packages/main/dist/**',
   ],
   extraResources:[
     {
