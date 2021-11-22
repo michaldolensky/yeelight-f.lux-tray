@@ -1,23 +1,18 @@
-import {app, Menu, nativeImage} from 'electron';
-import {getYeelightDevices} from '/@/getYeelightDevices';
+import {app, Menu} from 'electron';
 import {CtScene} from 'yeelight-awesome';
-
-const iconSize = 45;
+import {yeelightArray} from '/@/index';
+import {getMenuIcon} from '/@/utils/getIcons';
 
 export const contextMenu = Menu.buildFromTemplate([
   {
     label: 'Toggle',
-    icon: nativeImage.createFromPath(process.resourcesPath + '/icons/IEC5010_On_Off_Symbol.png').resize({height: iconSize}),
+    icon: getMenuIcon('IEC5010_On_Off_Symbol.png'),
     click: async () => {
       try {
-        const YeelightDevices = await getYeelightDevices();
-        const {yeelights, discover} = YeelightDevices;
-
-        for (const yeelight of yeelights) {
+        for (const yeelight of yeelightArray) {
           await yeelight.connect();
           await yeelight.toggle();
           await yeelight.disconnect();
-          await discover.destroy();
         }
       } catch (e) {
         console.log(e);
@@ -26,17 +21,14 @@ export const contextMenu = Menu.buildFromTemplate([
   },
   {
     label: 'Day',
-    icon: nativeImage.createFromPath('./resources/icons/sunrise_1f305.ico').resize({height: iconSize}),
+    icon: getMenuIcon('sunrise_1f305.ico'),
     click: async () => {
       try {
-        const YeelightDevices = await getYeelightDevices();
-        const {yeelights, discover} = YeelightDevices;
-        for (const yeelight of yeelights) {
+        for (const yeelight of yeelightArray) {
           await yeelight.connect();
           await yeelight.setScene(new CtScene(6500, 100));
           await yeelight.setPower(true, 'smooth');
           await yeelight.disconnect();
-          await discover.destroy();
         }
       } catch (e) {
         console.log(e);
@@ -45,22 +37,23 @@ export const contextMenu = Menu.buildFromTemplate([
   },
   {
     label: 'Night',
-    icon: nativeImage.createFromPath('./resources/icons/moon.ico').resize({height: iconSize}),
+    icon: getMenuIcon('moon.ico'),
     click: async () => {
-      const YeelightDevices = await getYeelightDevices();
-      const {yeelights, discover} = YeelightDevices;
-      for (const yeelight of yeelights) {
-        await yeelight.connect();
-        await yeelight.setScene(new CtScene(1700, 20));
-        await yeelight.setPower(true, 'smooth');
-        await yeelight.disconnect();
-        await discover.destroy();
+      try {
+        for (const yeelight of yeelightArray) {
+          await yeelight.connect();
+          await yeelight.setScene(new CtScene(1700, 20));
+          await yeelight.setPower(true, 'smooth');
+          await yeelight.disconnect();
+        }
+      } catch (e) {
+        console.log(e);
       }
     },
   },
   {
     label: 'Exit',
-    icon: nativeImage.createFromPath('./resources/icons/IEC5009_Standby_Symbol.png').resize({height: iconSize}),
+    icon: getMenuIcon('IEC5009_Standby_Symbol.png'),
     click: () => {
       app.quit();
     },
