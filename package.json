@@ -47,7 +47,7 @@
     "simple-git-hooks": "2.7.0",
     "typescript": "4.5.2",
     "vite": "2.6.14",
-    "vue-tsc": "0.29.6"
+    "vue-tsc": "0.29.7"
   },
   "dependencies": {
     "auto-launch": "5.0.5",
