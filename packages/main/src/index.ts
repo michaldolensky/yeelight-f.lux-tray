@@ -17,7 +17,7 @@ app.disableHardwareAcceleration();
 
 export let yeelightArray: Yeelight[] = [];
 
-const discover = new Discover({debug: import.meta.env.DEV, timeout: 5000}, logger);
+const discover = new Discover({debug: import.meta.env.DEV, timeout: 1000}, logger);
 
 discover
   .start()
