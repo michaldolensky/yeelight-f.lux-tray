@@ -22,7 +22,7 @@ const discover = new Discover({debug: import.meta.env.DEV, timeout: 5000}, logge
 discover
   .start()
   .then((devices) => {
-    logger.info('found device: ', devices);
+    logger.info('found devices: ', devices);
 
     yeelightArray = devices.map((device) => {
       return new Yeelight({lightIp: device.host, lightPort: device.port});
