@@ -45,6 +45,10 @@ app.on('window-all-closed', () => {
   }
 });
 
+app.on('quit', () => {
+  void discover.destroy();
+});
+
 app.whenReady()
   .then(initTray)
   .catch((e) => console.error('Failed create tray:', e));
