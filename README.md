@@ -15,6 +15,6 @@ Realy simple app that allows basic control of Yeelight bulbs through tray icon.
 
 ## Current Limitations
 - There is no option to change values.
-- Controls all the lights in the network.
+- Controls all the lights in the local network.
 - Occasionally the lights can't be controlled and need to be turned off/on, and even that rarely works.
-  - Can't figure it out due to many variables in my setup.
+  - Can't figure this bug out due to many variables in my setup - it's working, or nothing is working.
