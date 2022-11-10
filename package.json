@@ -52,7 +52,7 @@
   "dependencies": {
     "auto-launch": "5.0.5",
     "electron-updater": "4.6.5",
-    "vue": "3.2.43",
+    "vue": "3.2.44",
     "vue-router": "4.1.6",
     "yeelight-awesome": "1.1.0"
   }
