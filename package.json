@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@types/auto-launch": "5.0.5",
-    "@types/electron-devtools-installer": "2.2.3",
+    "@types/electron-devtools-installer": "2.2.5",
     "@typescript-eslint/eslint-plugin": "6.7.4",
     "@typescript-eslint/parser": "6.7.4",
     "@vitejs/plugin-vue": "2.3.4",
